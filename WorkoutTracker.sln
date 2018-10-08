@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutTracker", "WorkoutTracker\WorkoutTracker.csproj", "{ECC56B08-AF3A-434E-936A-512E42F9ED46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutTracker.WebAPI.Tests", "WorkoutTracker.Tests\WorkoutTracker.WebAPI.Tests.csproj", "{01ADAAF3-0D27-45BC-94FC-616EA2519A06}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutTracker.Core", "WorkoutTracker.Services\WorkoutTracker.Core.csproj", "{2A8F5B7C-9839-4D6D-91C6-902309A5FFCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutTracker.WebAPI", "WorkoutTracker.WebAPI\WorkoutTracker.WebAPI.csproj", "{20E4E811-45F5-4426-863C-03E04CB38B02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ECC56B08-AF3A-434E-936A-512E42F9ED46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ECC56B08-AF3A-434E-936A-512E42F9ED46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ECC56B08-AF3A-434E-936A-512E42F9ED46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ECC56B08-AF3A-434E-936A-512E42F9ED46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01ADAAF3-0D27-45BC-94FC-616EA2519A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01ADAAF3-0D27-45BC-94FC-616EA2519A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01ADAAF3-0D27-45BC-94FC-616EA2519A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01ADAAF3-0D27-45BC-94FC-616EA2519A06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A8F5B7C-9839-4D6D-91C6-902309A5FFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A8F5B7C-9839-4D6D-91C6-902309A5FFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A8F5B7C-9839-4D6D-91C6-902309A5FFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A8F5B7C-9839-4D6D-91C6-902309A5FFCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E4E811-45F5-4426-863C-03E04CB38B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E4E811-45F5-4426-863C-03E04CB38B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E4E811-45F5-4426-863C-03E04CB38B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E4E811-45F5-4426-863C-03E04CB38B02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
