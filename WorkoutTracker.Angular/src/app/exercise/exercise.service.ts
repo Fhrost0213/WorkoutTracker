@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Exercise } from './exercise';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class ExerciseService {
       Description: exerciseDescription
     };
 
-    const body = JSON.stringify(this.exercise);
+    this.http.post(environment.apiPath + '/api/Exercise', this.exercise).subscribe(function (data) {
 
-    this.http.post('/api/exercise', body);
+    });
   }
 }

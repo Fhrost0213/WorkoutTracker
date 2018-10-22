@@ -1,12 +1,16 @@
-<form>
+<form [formGroup]="addExerciseForm" (ngSubmit)="onSubmit()">
   <h3>Add a new exercise</h3>
   <div class="form-group">
-    <label for="exerciseName">Exercise Name</label>
-    <input type="text" class="form-control" id="exerciseName" required>
+    <label>
+      Exercise Name: 
+      <input type="text" formControlName="exerciseName">
+    </label>
   </div>
   <div class="form-group">
-    <label for="exerciseDescription">Exercise Description</label>
-    <input type="text" class="form-control" id="exerciseDescription">
+    <label>
+      Exercise Description: 
+      <input type="text" formControlName="exerciseDescription">
+  </label>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="onSubmit(exerciseName, exerciseDescription)">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
