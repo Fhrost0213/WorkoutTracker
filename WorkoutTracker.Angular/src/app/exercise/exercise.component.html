@@ -14,3 +14,11 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<h3>Current Exercises: </h3>
+<div class="list-group" *ngFor="let exercise of exercises | async">
+  <div class="list-group-item">
+    <div><b>Name:</b> {{exercise.name}}</div>
+    <div><b>Description:</b> {{exercise.description}}</div>
+    <button type="button" class="btn btn-danger" (click)="onDeleteExercise(exercise.id)">Delete</button>
+  </div>
+</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseService } from './exercise.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Exercise } from './exercise';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-exercise',
@@ -12,10 +14,12 @@ export class ExerciseComponent implements OnInit {
     exerciseName: new FormControl(''),
     exerciseDescription: new FormControl('')
   });
+  exercises: Observable<Exercise[]>;
 
   constructor(private exerciseService: ExerciseService) { }
 
   ngOnInit() {
+    this.setExercises();
   }
 
   onSubmit(): void {
@@ -25,8 +29,15 @@ export class ExerciseComponent implements OnInit {
 
       this.exerciseService.addExercise(
         exerciseName,
-        exerciseDescription);
+        exerciseDescription).subscribe(data => this.setExercises());
     }
   }
 
+  setExercises(): void {
+    this.exercises = this.exerciseService.getExercises();
+  }
+
+  onDeleteExercise(id: number): void {
+    this.exerciseService.deleteExercise(id).subscribe(data => this.setExercises());
+  }
 }

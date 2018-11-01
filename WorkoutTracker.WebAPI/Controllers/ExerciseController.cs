@@ -44,7 +44,7 @@ namespace WorkoutTracker.WebAPI.Controllers
             _exerciseService.UpdateExercise(exercise);
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/Exercise/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
