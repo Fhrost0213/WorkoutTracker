@@ -1,21 +1,23 @@
-<form [formGroup]="addExerciseForm" (ngSubmit)="onSubmit()">
-  <h3>Add a new exercise</h3>
-  <div class="form-group">
-    <label>
-      Exercise Name: 
-      <input type="text" formControlName="exerciseName">
+<div class="m-5">
+  <form [formGroup]="addExerciseForm" (ngSubmit)="onSubmit()">
+    <h3>Add a new exercise</h3>
+    <div class="form-group">
+      <label>
+        Exercise Name: 
+        <input type="text" formControlName="exerciseName">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Exercise Description: 
+        <input type="text" formControlName="exerciseDescription">
     </label>
-  </div>
-  <div class="form-group">
-    <label>
-      Exercise Description: 
-      <input type="text" formControlName="exerciseDescription">
-  </label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 <h3>Current Exercises: </h3>
-<div class="list-group" *ngFor="let exercise of exercises | async">
+<div class="list-group" *ngFor="let exercise of exercises$ | async">
   <div class="list-group-item">
     <div><b>Name:</b> {{exercise.name}}</div>
     <div><b>Description:</b> {{exercise.description}}</div>

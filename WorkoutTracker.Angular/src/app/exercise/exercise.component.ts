@@ -3,6 +3,9 @@ import { ExerciseService } from './exercise.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Exercise } from './exercise';
 import { Observable } from 'rxjs';
+import { Store, Select } from '@ngxs/store';
+import { AddExercise, DeleteExercise } from './state/exercise.actions';
+import { ExerciseState } from './state/exercise.state';
 
 @Component({
   selector: 'app-exercise',
@@ -14,30 +17,24 @@ export class ExerciseComponent implements OnInit {
     exerciseName: new FormControl(''),
     exerciseDescription: new FormControl('')
   });
-  exercises: Observable<Exercise[]>;
 
-  constructor(private exerciseService: ExerciseService) { }
+  @Select(ExerciseState.getExercises) exercises$: Observable<Exercise[]>;
 
-  ngOnInit() {
-    this.setExercises();
-  }
+  constructor(private store: Store) {}
+
+  ngOnInit() {}
 
   onSubmit(): void {
-    if (this.addExerciseForm.valid) {
-      const exerciseName = this.addExerciseForm.get('exerciseName').value;
-      const exerciseDescription = this.addExerciseForm.get('exerciseDescription').value;
+    const exercise: Exercise = {
+      Id: 0,
+        Name: this.addExerciseForm.get('exerciseName').value,
+        Description: this.addExerciseForm.get('exerciseDescription').value
+    };
 
-      this.exerciseService.addExercise(
-        exerciseName,
-        exerciseDescription).subscribe(data => this.setExercises());
-    }
-  }
-
-  setExercises(): void {
-    this.exercises = this.exerciseService.getExercises();
+    this.store.dispatch(new AddExercise(exercise));
   }
 
   onDeleteExercise(id: number): void {
-    this.exerciseService.deleteExercise(id).subscribe(data => this.setExercises());
+    this.store.dispatch(new DeleteExercise(id));
   }
 }

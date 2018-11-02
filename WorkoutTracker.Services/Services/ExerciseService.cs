@@ -6,7 +6,7 @@ namespace WorkoutTracker.Core.Services
 {
     public class ExerciseService : IExerciseService
     {
-        private static List<Exercise> _exercises = new List<Exercise>();
+        private static readonly List<Exercise> _exercises = new List<Exercise>();
 
         public IEnumerable<Exercise> GetExercises()
         {

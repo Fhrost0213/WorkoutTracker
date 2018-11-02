@@ -3,24 +3,17 @@ import { Exercise } from './exercise';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExerciseService {
-  exercise: Exercise;
 
   constructor(private http: HttpClient) { }
 
-  addExercise(exerciseName: string, exerciseDescription: string): Observable<object> {
-    this.exercise = {
-      Id: 0,
-      Name: exerciseName,
-      Description: exerciseDescription
-    };
-
-    return this.http.post(environment.apiPath + '/api/Exercise', this.exercise);
+  addExercise(exercise: Exercise): Observable<object> {
+    return this.http.post(environment.apiPath + '/api/Exercise', exercise);
   }
 
   getExercises(): Observable<Exercise[]> {
