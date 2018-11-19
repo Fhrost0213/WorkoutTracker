@@ -1,9 +1,12 @@
 import { Exercise } from '../exercise/exercise';
 
 export interface WorkoutItem {
-    Id: number;
+    WorkoutItemId: number;
     Exercise: Exercise;
+    ExerciseId: number;
     Reps: number;
     Weight: number;
-    Date: Date;
+    WorkoutItemDate: Date;
+    AddDate: Date;
+    AddName: string;
 }

@@ -6,39 +6,51 @@ namespace WorkoutTracker.Core.Services
 {
     public class ExerciseService : IExerciseService
     {
-        private static readonly List<Exercise> _exercises = new List<Exercise>();
+        private readonly WorkoutTrackerContext _context;
 
-        public IEnumerable<Exercise> GetExercises()
+        public ExerciseService(WorkoutTrackerContext context)
         {
-            return _exercises;
+            _context = context;
         }
 
-        public Exercise GetExercise(int id)
+        public IEnumerable<Exercises> GetExercises()
         {
-            return _exercises.FirstOrDefault(x => x.Id == id);
+            return _context.Exercises;
         }
 
-        public void CreateExercise(Exercise exercise)
+        public Exercises GetExercise(int id)
         {
-            _exercises.Add(exercise);
+            return _context.Exercises.SingleOrDefault(x => x.ExerciseId == id);
         }
 
-        public void UpdateExercise(Exercise exercise)
+        public void CreateExercise(Exercises exercise)
         {
-            var currentExercise = _exercises.First(x => x.Id == exercise.Id);
+            _context.Exercises.Add(exercise);
+            _context.SaveChanges();
+        }
+
+        public void UpdateExercise(Exercises exercise)
+        {
+            var currentExercise = _context.Exercises.SingleOrDefault(x => x.ExerciseId == exercise.ExerciseId);
 
             if (currentExercise != null)
             {
-                currentExercise.Description = exercise.Description;
-                currentExercise.Name = exercise.Name;
+                currentExercise.ExerciseDescription = exercise.ExerciseDescription;
+                currentExercise.ExerciseName = exercise.ExerciseName;
+                _context.SaveChanges();
             }
         }
 
-        public void DeleteExercise(int id)
+        public void DeleteExercise(int exerciseId)
         {
-            var exercise = _exercises.FirstOrDefault(x => x.Id == id);
+            var exercise = _context.Exercises.SingleOrDefault(x => x.ExerciseId == exerciseId);
 
-            _exercises.Remove(exercise);
+            if (exercise != null)
+            {
+                _context.Exercises.Remove(exercise);
+                _context.SaveChanges();
+            }
+                
         }
     }
 }

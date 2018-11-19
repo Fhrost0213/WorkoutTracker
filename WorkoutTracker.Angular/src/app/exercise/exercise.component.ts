@@ -24,14 +24,12 @@ export class ExerciseComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(): void {
-    const test1 = '';
-    const test2 = '';
-    const test = test1 || test2;
-
     const exercise: Exercise = {
-      Id: 0,
-        Name: this.addExerciseForm.get('exerciseName').value,
-        Description: this.addExerciseForm.get('exerciseDescription').value
+        ExerciseId: 0,
+        ExerciseName: this.addExerciseForm.get('exerciseName').value,
+        ExerciseDescription: this.addExerciseForm.get('exerciseDescription').value,
+        AddDate: new Date(),
+        AddName: ''
     };
 
     this.store.dispatch(new AddExercise(exercise));

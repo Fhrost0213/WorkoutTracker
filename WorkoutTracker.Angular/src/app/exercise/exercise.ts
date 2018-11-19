@@ -1,5 +1,7 @@
 export interface Exercise {
-    Id: number;
-    Name: string;
-    Description: string;
+    ExerciseId: number;
+    ExerciseName: string;
+    ExerciseDescription: string;
+    AddDate: Date;
+    AddName: string;
 }

@@ -18,28 +18,28 @@ namespace WorkoutTracker.WebAPI.Controllers
 
         // GET: api/Exercise
         [HttpGet]
-        public IEnumerable<Exercise> Get()
+        public IEnumerable<Exercises> Get()
         {
             return _exerciseService.GetExercises();
         }
 
         // GET: api/Exercise/5
         [HttpGet("{id}", Name = "GetExercise")]
-        public Exercise Get(int id)
+        public Exercises Get(int id)
         {
             return _exerciseService.GetExercise(id);
         }
 
         // POST: api/Exercise
         [HttpPost]
-        public void Post([FromBody]Exercise exercise)
+        public void Post([FromBody]Exercises exercise)
         {
             _exerciseService.CreateExercise(exercise);
         }
 
         // PUT: api/Exercise
         [HttpPut]
-        public void Put([FromBody] Exercise exercise)
+        public void Put([FromBody] Exercises exercise)
         {
             _exerciseService.UpdateExercise(exercise);
         }

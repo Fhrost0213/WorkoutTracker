@@ -5,7 +5,7 @@
         <label>
           Exercise: 
           <select formControlName="workoutItemExercise">
-            <option *ngFor="let exercise of exercises$ | async" [ngValue]="exercise">{{exercise.name}}</option>
+            <option *ngFor="let exercise of exercises$ | async" [ngValue]="exercise">{{exercise.exerciseName}}</option>
           </select>
         </label>
       </div>
@@ -32,10 +32,10 @@
   <h3>Current Workout Items: </h3>
   <div class="list-group" *ngFor="let workoutItem of workoutItems | async">
     <div class="list-group-item">
-      <div><b>Exercise:</b> {{workoutItem.exercise.name}}</div>
+      <div><b>Exercise:</b> {{workoutItem.exercise?.exerciseName}}</div>
       <div><b>Reps:</b> {{workoutItem.reps}}</div>
       <div><b>Weight:</b> {{workoutItem.weight}}</div>
-      <div><b>Date:</b> {{workoutItem.date}}</div>
+      <div><b>Date:</b> {{workoutItem.workoutItemDate}}</div>
       <button type="button" class="btn btn-danger" (click)="onDeleteExercise(workoutItem.id)">Delete</button>
     </div>
   </div>

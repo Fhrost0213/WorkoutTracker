@@ -4,6 +4,6 @@ namespace WorkoutTracker.Core.Models
 {
     public class Workout
     {
-        public List<WorkoutItem> WorkoutItems { get; set; }
+        public List<WorkoutItems> WorkoutItems { get; set; }
     }
 }

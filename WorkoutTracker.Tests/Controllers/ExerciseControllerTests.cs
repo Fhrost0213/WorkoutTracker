@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using WorkoutTracker.WebAPI.Controllers;
 using WorkoutTracker.Core.Models;
 using WorkoutTracker.Core.Services;
+using WorkoutTracker.WebAPI.Controllers;
 
-namespace WorkoutTracker.Tests.Controllers
+namespace WorkoutTracker.WebAPI.Tests.Controllers
 {
     [TestClass]
     public class ExerciseControllerTests

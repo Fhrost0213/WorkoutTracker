@@ -23,7 +23,6 @@ export class ExerciseService {
     });
   }
 
-
   addExercise(exercise: Exercise): Observable<object> {
     return this.http.post(environment.apiPath + '/api/Exercise', exercise);
   }

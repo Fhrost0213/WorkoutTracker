@@ -5,10 +5,10 @@ namespace WorkoutTracker.Core.Services
 {
     public interface IWorkoutItemService
     {
-        void CreateWorkoutItem(WorkoutItem workoutItem);
+        void CreateWorkoutItem(WorkoutItems workoutItem);
         void DeleteWorkoutItem(int id);
-        WorkoutItem GetWorkoutItem(int id);
-        IEnumerable<WorkoutItem> GetWorkoutItems();
-        void UpdateWorkoutItem(WorkoutItem workoutItem);
+        WorkoutItems GetWorkoutItem(int id);
+        IEnumerable<WorkoutItems> GetWorkoutItems();
+        void UpdateWorkoutItem(WorkoutItems workoutItem);
     }
 }

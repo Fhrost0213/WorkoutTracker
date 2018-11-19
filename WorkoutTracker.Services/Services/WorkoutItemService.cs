@@ -1,31 +1,40 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using WorkoutTracker.Core.Models;
 
 namespace WorkoutTracker.Core.Services
 {
     public class WorkoutItemService : IWorkoutItemService
     {
-        private static readonly List<WorkoutItem> _workoutItems = new List<WorkoutItem>();
+        private readonly WorkoutTrackerContext _context;
 
-        public IEnumerable<WorkoutItem> GetWorkoutItems()
+        public WorkoutItemService(WorkoutTrackerContext context)
         {
-            return _workoutItems;
+            _context = context;
         }
 
-        public WorkoutItem GetWorkoutItem(int id)
+        public IEnumerable<WorkoutItems> GetWorkoutItems()
         {
-            return _workoutItems.FirstOrDefault(x => x.Id == id);
+            return _context.WorkoutItems;
         }
 
-        public void CreateWorkoutItem(WorkoutItem workoutItem)
+        public WorkoutItems GetWorkoutItem(int workoutItemId)
         {
-            _workoutItems.Add(workoutItem);
+            return _context.WorkoutItems.SingleOrDefault(x => x.WorkoutItemId == workoutItemId);
         }
 
-        public void UpdateWorkoutItem(WorkoutItem workoutItem)
+        public void CreateWorkoutItem(WorkoutItems workoutItem)
         {
-            var currentWorkoutItem = _workoutItems.First(x => x.Id == workoutItem.Id);
+            var exercise = _context.Exercises.Find(workoutItem.Exercise.ExerciseId);
+            workoutItem.Exercise = exercise;
+            _context.WorkoutItems.Add(workoutItem);
+            _context.SaveChanges();
+        }
+
+        public void UpdateWorkoutItem(WorkoutItems workoutItem)
+        {
+            var currentWorkoutItem = _context.WorkoutItems.First(x => x.WorkoutItemId == workoutItem.WorkoutItemId);
 
             if (currentWorkoutItem != null)
             {
@@ -33,14 +42,19 @@ namespace WorkoutTracker.Core.Services
                 currentWorkoutItem.Reps = workoutItem.Reps;
                 currentWorkoutItem.Weight = workoutItem.Weight;
                 currentWorkoutItem.AddDate = workoutItem.AddDate;
+                _context.SaveChanges();
             }
         }
 
-        public void DeleteWorkoutItem(int id)
+        public void DeleteWorkoutItem(int workoutItemId)
         {
-            var workoutItem = _workoutItems.FirstOrDefault(x => x.Id == id);
+            var workoutItem = _context.WorkoutItems.SingleOrDefault(x => x.WorkoutItemId == workoutItemId);
 
-            _workoutItems.Remove(workoutItem);
+            if (workoutItem != null)
+            {
+                _context.WorkoutItems.Remove(workoutItem);
+                _context.SaveChanges();
+            }
         }
     }
 }

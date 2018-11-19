@@ -18,9 +18,9 @@
   <h3>Current Exercises:</h3>
   <div class="list-group" *ngFor="let exercise of exercises$ | async">
     <div class="list-group-item">
-      <div><b>Name:</b> {{exercise.name}}</div>
-      <div><b>Description:</b> {{exercise.description}}</div>
-      <button type="button" class="btn btn-danger" (click)="onDeleteExercise(exercise.id)">Delete</button>
+      <div><b>Name:</b> {{exercise.exerciseName}}</div>
+      <div><b>Description:</b> {{exercise.exerciseDescription}}</div>
+      <button type="button" class="btn btn-danger" (click)="onDeleteExercise(exercise.exerciseId)">Delete</button>
     </div>
   </div>
 </div>

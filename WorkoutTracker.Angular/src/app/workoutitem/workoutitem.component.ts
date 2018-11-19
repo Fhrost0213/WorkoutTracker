@@ -18,23 +18,28 @@ export class WorkoutitemComponent implements OnInit {
     workoutItemExercise: new FormControl(''),
     workoutItemReps: new FormControl(''),
     workoutItemWeight: new FormControl(''),
-    workoutItemDate: new FormControl('')
+    workoutItemDate: new FormControl(new Date())
   });
   workoutItems: Observable<WorkoutItem[]>;
 
   constructor(private workoutItemService: WorkoutitemService) { }
 
   ngOnInit() {
+    this.setWorkoutItems();
   }
 
   onSubmit(): void {
     if (this.addWorkoutItemForm.valid) {
+      const exercise = this.addWorkoutItemForm.get('workoutItemExercise').value;
       const workoutItem: WorkoutItem = {
-        Id: 0,
-        Exercise: this.addWorkoutItemForm.get('workoutItemExercise').value,
+        WorkoutItemId: 0,
+        Exercise: exercise,
+        ExerciseId: exercise.exerciseId,
         Reps: this.addWorkoutItemForm.get('workoutItemReps').value,
         Weight: this.addWorkoutItemForm.get('workoutItemWeight').value,
-        Date: this.addWorkoutItemForm.get('workoutItemDate').value
+        WorkoutItemDate: this.addWorkoutItemForm.get('workoutItemDate').value,
+        AddDate: new Date(),
+        AddName: ''
       };
 
       this.workoutItemService.add(workoutItem).subscribe(data => this.setWorkoutItems());
