@@ -9,8 +9,20 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ExerciseService {
+  exerciseSubject$: BehaviorSubject<Exercise[]> = new BehaviorSubject<Exercise[]>(null);
+  public exercises$ = this.exerciseSubject$.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.initExercises();
+  }
+
+  initExercises() {
+    this.http.get<Exercise[]>(environment.apiPath + '/api/Exercise')
+    .subscribe(items => {
+      this.exerciseSubject$.next(items);
+    });
+  }
+
 
   addExercise(exercise: Exercise): Observable<object> {
     return this.http.post(environment.apiPath + '/api/Exercise', exercise);

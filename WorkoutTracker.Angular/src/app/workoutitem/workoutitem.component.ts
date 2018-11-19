@@ -8,7 +8,6 @@ import { Select } from '@ngxs/store';
 import { ExerciseState } from '../exercise/state/exercise.state';
 
 @Component({
-  selector: 'app-workoutitem',
   templateUrl: './workoutitem.component.html',
   styleUrls: ['./workoutitem.component.css']
 })

@@ -10,17 +10,21 @@ import { NgxsModule, Store } from '@ngxs/store';
 import { ExerciseState } from './exercise/state/exercise.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExerciseComponent,
-    WorkoutitemComponent
+    WorkoutitemComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AppRoutingModule,
     NgxsModule.forRoot([ExerciseState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()

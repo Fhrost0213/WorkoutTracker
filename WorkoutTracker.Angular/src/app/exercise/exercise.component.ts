@@ -8,7 +8,6 @@ import { AddExercise, DeleteExercise } from './state/exercise.actions';
 import { ExerciseState } from './state/exercise.state';
 
 @Component({
-  selector: 'app-exercise',
   templateUrl: './exercise.component.html',
   styleUrls: ['./exercise.component.css']
 })
@@ -25,6 +24,10 @@ export class ExerciseComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(): void {
+    const test1 = '';
+    const test2 = '';
+    const test = test1 || test2;
+
     const exercise: Exercise = {
       Id: 0,
         Name: this.addExerciseForm.get('exerciseName').value,

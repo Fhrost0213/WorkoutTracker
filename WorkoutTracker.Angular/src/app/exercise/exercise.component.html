@@ -1,4 +1,4 @@
-<div class="m-5">
+<div class="container mx-auto text-center">
   <form [formGroup]="addExerciseForm" (ngSubmit)="onSubmit()">
     <h3>Add a new exercise</h3>
     <div class="form-group">
@@ -15,12 +15,12 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</div>
-<h3>Current Exercises: </h3>
-<div class="list-group" *ngFor="let exercise of exercises$ | async">
-  <div class="list-group-item">
-    <div><b>Name:</b> {{exercise.name}}</div>
-    <div><b>Description:</b> {{exercise.description}}</div>
-    <button type="button" class="btn btn-danger" (click)="onDeleteExercise(exercise.id)">Delete</button>
+  <h3>Current Exercises:</h3>
+  <div class="list-group" *ngFor="let exercise of exercises$ | async">
+    <div class="list-group-item">
+      <div><b>Name:</b> {{exercise.name}}</div>
+      <div><b>Description:</b> {{exercise.description}}</div>
+      <button type="button" class="btn btn-danger" (click)="onDeleteExercise(exercise.id)">Delete</button>
+    </div>
   </div>
 </div>
