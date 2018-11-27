@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  workouttracker.webapi:
+    image: ${DOCKER_REGISTRY}workouttrackerwebapi
+    build:
+      context: .
+      dockerfile: WorkoutTracker.WebAPI/Dockerfile

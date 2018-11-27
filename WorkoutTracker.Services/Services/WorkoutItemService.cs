@@ -16,7 +16,7 @@ namespace WorkoutTracker.Core.Services
 
         public IEnumerable<WorkoutItems> GetWorkoutItems()
         {
-            return _context.WorkoutItems;
+            return _context.WorkoutItems.Include(items => items.Exercise).ToList();
         }
 
         public WorkoutItems GetWorkoutItem(int workoutItemId)

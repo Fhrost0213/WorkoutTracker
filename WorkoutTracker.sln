@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutTracker.WebAPI.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutTracker.Core", "WorkoutTracker.Services\WorkoutTracker.Core.csproj", "{2A8F5B7C-9839-4D6D-91C6-902309A5FFCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutTracker.WebAPI", "WorkoutTracker.WebAPI\WorkoutTracker.WebAPI.csproj", "{20E4E811-45F5-4426-863C-03E04CB38B02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutTracker.WebAPI", "WorkoutTracker.WebAPI\WorkoutTracker.WebAPI.csproj", "{20E4E811-45F5-4426-863C-03E04CB38B02}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5F64BE38-83DE-4817-B796-1B54C9F540CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{20E4E811-45F5-4426-863C-03E04CB38B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20E4E811-45F5-4426-863C-03E04CB38B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20E4E811-45F5-4426-863C-03E04CB38B02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F64BE38-83DE-4817-B796-1B54C9F540CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F64BE38-83DE-4817-B796-1B54C9F540CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F64BE38-83DE-4817-B796-1B54C9F540CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F64BE38-83DE-4817-B796-1B54C9F540CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
